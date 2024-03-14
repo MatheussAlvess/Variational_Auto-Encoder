@@ -6,10 +6,8 @@ from tensorflow.keras import layers
 class Sampling(layers.Layer):
   """
   Camada customizada para realizar a amostragem do espaço latente.
-  Args:
-      **kwargs: Argumentos adicionais para a camada base.
-  Returns:
-      A amostra do espaço latente.
+    **kwargs: Argumentos adicionais para a camada base.
+    Retorna a amostra do espaço latente.
   """
   def __init__(self, **kwargs):
     super(Sampling, self).__init__(**kwargs)
@@ -30,11 +28,9 @@ class Sampling(layers.Layer):
 def create_encoder(input_shape, latent_dim, summary=False):
   """
   Cria o encoder da rede VAE.
-
     input_shape: a forma da entrada da rede (altura, largura, canais de cor).
     latent_dim: a dimensionalidade do espaço latente.
     summary: verdadeiro ou falso para printar o summary.
-
     É retornado modelo Keras representando o encoder.
   """
 
@@ -218,25 +214,22 @@ def build_model(save_model: bool = False,
   """
   Constrói e treina o modelo VAE.
 
-  Args:
-      save_model: Booleano indicando se deve salvar os modelos encoder e decoder.
-      image_size: A altura e largura das imagens (deve ser um quadrado).
-      latent_dim: A dimensionalidade do espaço latente.
-      batch_size: O tamanho do lote para o treinamento.
-      n_epochs: O número de épocas para o treinamento.
-      data_path: O caminho para o diretório contendo as imagens de treinamento.
-      summary: Booleano indicando se deve imprimir o sumário dos modelos.
+    save_model: verdadeiro ou falso se deve salvar os modelos encoder e decoder.
+    image_size: A altura e largura das imagens.
+    latent_dim: A dimensionalidade do espaço latente.
+    batch_size: O tamanho do lote para o treinamento.
+    n_epochs: O número de épocas para o treinamento.
+    data_path: O caminho para o diretório contendo as imagens de treinamento.
+    summary: verdadeiro ou falso para printar o summary.
 
-  Returns:
-      O modelo VAE treinado.
+    É retornado o modelo VAE treinado.
   """
-
+  
   input_shape = (image_size, image_size, 3)
 
   # Cria o dataset de imagens
   batch_dataset = tf.keras.utils.image_dataset_from_directory(
     data_path,
-    # Como o VAE é um modelo não supervisionado, não precisamos dos rótulos
     label_mode = None,
     seed=42,
     image_size=(image_size, image_size),
@@ -253,10 +246,10 @@ def build_model(save_model: bool = False,
   # Cria o modelo VAE
   vae = VAE(encoder, decoder)
 
-  # Compila o modelo com otimizador Adam e lr de 1e-4
+  # Compila o modelo com otimizador Adam e lr
   vae.compile(optimizer=keras.optimizers.Adam(1e-4))
 
-  # Treina o modelo
+  # Realiza o treinamento
   vae.fit(batch_dataset_norm, epochs=n_epochs)
 
   # Salva os modelos se necessário
@@ -268,4 +261,4 @@ def build_model(save_model: bool = False,
 
 
 if __name__ == '__main__':
-  build_model(n_epochs=1, save_model=True)
+  build_model(n_epochs=50, save_model=True)

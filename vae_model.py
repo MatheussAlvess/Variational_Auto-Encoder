@@ -1,6 +1,8 @@
+import os
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 
 class Sampling(layers.Layer):
@@ -44,7 +46,7 @@ def create_encoder(input_shape, latent_dim, summary=False):
   body = layers.LeakyReLU(0.2)(body)
 
   # Bloco de camadas convolucionais para extrair caracteristicas
-  for filter_size in [128, 128, 128]:
+  for filter_size in [128, 64, 64]:
     body = layers.Conv2D(filter_size, 3, strides=2, padding="same")(body)
     body = layers.BatchNormalization()(body)
     body = layers.LeakyReLU(0.2)(body)
@@ -102,7 +104,7 @@ def create_decoder(latent_dim, summary=False):
   # Bloco de camadas para reconstruir a imagem. Diminuir o filter)size
   # ajuda a controlar a complexidade dos recursos que a camada pode aprender
 
-  for filter_size in [128, 64, 32]:
+  for filter_size in [128, 64, 32, 16]:
     body = layers.Conv2DTranspose(filter_size, 3, strides=2, padding="same")(body)
     body = layers.BatchNormalization()(body)
     body = layers.LeakyReLU(0.2)(body)
@@ -207,7 +209,7 @@ def build_model(save_model: bool = False,
                 image_size: int = 128,
                 latent_dim: int = 128,
                 batch_size: int = 32,
-                n_epochs: int = 10,
+                n_epochs: int = 100,
                 data_path: object = 'data/train/',
                 summary=False):
 
@@ -224,7 +226,7 @@ def build_model(save_model: bool = False,
 
     É retornado o modelo VAE treinado.
   """
-  
+
   input_shape = (image_size, image_size, 3)
 
   # Cria o dataset de imagens
@@ -251,7 +253,7 @@ def build_model(save_model: bool = False,
 
   # Realiza o treinamento
   vae.fit(batch_dataset_norm, epochs=n_epochs)
-
+ 
   # Salva os modelos se necessário
   if save_model:
     vae.decoder.save('vae_dog_decoder')

@@ -191,6 +191,8 @@ class VAE(keras.Model):
       # Quantificando a perda total
       total_loss = reconstruction_loss + kl_loss
 
+    # Quantificando o quanto que a total_loss muda em relação a cada peso e 
+    # consequentemente muda os pesos
     grads = tape.gradient(total_loss, self.trainable_weights)
     self.optimizer.apply_gradients(zip(grads, self.trainable_weights))
 

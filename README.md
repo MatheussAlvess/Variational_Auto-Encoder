@@ -35,7 +35,8 @@ Caso haja o interesse em executar os códigos e replicar os outputs, basta execu
 #### Observações:
 
 - Você pode modificar os parâmetros do modelo VAE editando o script `vae_model.py`, tanto passando os parâmetros para o `build_model` quanto variando internamente os hiperparâmetros da arquitetura (como o tamanho dos filtros, quantidade de camadas, etc.).
-- A arquitetura foi fundamentada no [ _code examples_](https://keras.io/examples/generative/vae/) do Keras.
+- A arquitetura foi fundamentada no [ _code examples_](https://keras.io/examples/generative/vae/) do Keras utilizando o MNIST, visando ter um ponto de partida "validado", uma vez que não seria possível realizar um maior refinamento ou até mesmo um grid de parâmetros e arquiteturas.
+- Os resultados foram até aceitáveis, dado que nada foi otimizado apenas baseado. Mas para melhorar o desempenho, recomento aumentar o número de épocas, avaliar as métricas de perda, variar a estrutura tanto do encoder quanto do decoder além de variar os parâmetros no geral. 
 
 
 **Nota**: Devido o tamanho dos modelos salvos, não foi possível subir no repositório. Para replicar os resultados, basta executar com os parâmetros _default_.

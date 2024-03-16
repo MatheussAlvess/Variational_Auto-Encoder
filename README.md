@@ -11,6 +11,7 @@ O dataset utilizado pode ser obtido via Kaggle: [Dog Breed Indetification](https
 No repositório podem ser encontrados os arquivos:
 - `vae_model.py` -> Aqui é construída arquitetura de encoder decoder utilizada, além de funções auxiliares.
 - `tasks.py` - > Aqui são respondidas as questões a respeito de Missigenação e Identificação de raça.
+- `requirements.txt` -> Dependências.
 - Complementarmente, temos a pasta `images` contendo as imagens utilizadas na execução das tasks. 
 
 ## Uso:

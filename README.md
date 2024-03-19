@@ -46,5 +46,5 @@ git clone https://github.com/MatheussAlvess/Variational_Auto-Encoder.git
 #### Próximos passos:
 - Realizar clusterização no espaço latente considerando as raças. Tendo como objetivo conseguir avaliar, dado uma imagem de input, qual a raça do cachorro.
 
-
-**Nota**: Devido o tamanho dos modelos salvos, não foi possível subir no repositório. Para replicar os resultados, basta executar com os parâmetros _default_.
+> [!NOTE]
+> Devido o tamanho dos modelos salvos, não foi possível subir no repositório. Para replicar os resultados, basta executar com os parâmetros _default_.

@@ -21,14 +21,17 @@ Caso haja o interesse em executar os códigos e replicar os outputs, basta execu
 
 ### Para executar os códigos e replicar os resultados, siga estas etapas:
 
-1. Clone este repositório para o seu computador.
+1. Clone este repositório para o seu computador utilizando o comando no terminal:
 ```
 git clone https://github.com/MatheussAlvess/Variational_AutoEncoder.git
 ```
 2. Navegue até o diretório do projeto.
-3. Garanta ter as dependências necessárias (vide `requirements.txt`)
-4. Descompacte a pasta do dataset e renomeie para 'data'. (Está pasta deve conter a subpasta _train_)
-5. Execute o seguinte comando no terminal:
+3. Garanta ter as dependências necessárias executando no terminal:
+```
+ pip install -r requirements.txt
+```
+5. Descompacte a pasta do dataset e renomeie para 'data'. (Está pasta deve conter a subpasta _train_)
+6. Execute o seguinte comando no terminal:
    `python vae_model.py`
    
 #### O que o comando faz?

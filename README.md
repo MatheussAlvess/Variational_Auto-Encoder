@@ -1,4 +1,4 @@
-# Variational-AutoEncoder para Imagens de Cachorros
+# Variational AutoEncoder para Imagens de Cachorros
 
 ## O projeto consiste em construir uma Arquitetura VAE (Variational-AutoEncoder) para aprender características de imagens de cachorros e ser capaz de reconstruí-las.
 
@@ -23,7 +23,7 @@ Caso haja o interesse em executar os códigos e replicar os outputs, basta execu
 
 1. Clone este repositório para o seu computador.
 ```
-git clone https://github.com/MatheussAlvess/Variational_Auto-Encoder.git
+git clone https://github.com/MatheussAlvess/Variational_AutoEncoder.git
 ```
 2. Navegue até o diretório do projeto.
 3. Garanta ter as dependências necessárias (vide `requirements.txt`)

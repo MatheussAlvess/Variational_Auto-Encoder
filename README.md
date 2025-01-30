@@ -1,53 +1,61 @@
-# Variational AutoEncoder para Imagens de Cachorros
+# Variational AutoEncoder for Dog Images
 
-## O projeto consiste em construir uma Arquitetura VAE (Variational-AutoEncoder) para aprender características de imagens de cachorros e ser capaz de reconstruí-las.
+<p align="center">
+  <img src="images/wallpaper.png"/>
+</p>
 
-## Conjunto de dados:
+## Project Overview
+The project consists of building a Variational AutoEncoder (VAE) architecture to learn features from dog images and be able to reconstruct them.
 
-Os dados consistem em imagens de cachorros, as quais são armazenadas nas pastas `train` e `test`. Existe também um `.csv` que associa o nome da imagem com a raça do cachorro.
-Estes dadps podem ser obtidos via Kaggle: [Dog Breed Indetification](https://www.kaggle.com/c/dog-breed-identification/data).
+## Dataset:
 
-## Conteúdo:
+The data consists of dog images stored in the train and test folders. There is also a .csv file that associates the image name with the dog's breed.
+These data can be obtained via Kaggle: [Dog Breed Indetification](https://www.kaggle.com/c/dog-breed-identification/data).
 
-No repositório podem ser encontrados os arquivos:
-- `vae_model.py` -> Aqui é construída arquitetura de encoder decoder utilizada, além de funções auxiliares.
-- `tasks.py` - > Aqui são respondidas as questões a respeito de Missigenação e Identificação de raça.
-- `requirements.txt` -> Dependências.
-- Complementarmente, temos a pasta `images` contendo as imagens utilizadas na execução das tasks. 
+## Contents:
 
-## Uso:
+The repository contains the following files:
+- `vae_model.py` -> Constructs the encoder-decoder architecture used, along with auxiliary.
+- `tasks.py` - > Answers questions regarding breed mixture and identification.
+- `requirements.txt` -> Lists the dependencies.
+- Additionally, the `images` folder contains images used during task execution.
 
-Caso haja o interesse em executar os códigos e replicar os outputs, basta executar `$python vae_model.py`. Dessa forma, serão salvos tanto o encoder quanto o decoder com os parâmetros _default_ definidos na função `build_model`.
+## Usage:
 
-### Para executar os códigos e replicar os resultados, siga estas etapas:
+### To run the code and replicate the outputs, simply execute:
+```sh
+python vae_model.py
+```
+## Steps to Execute the Code and Replicate the Results
 
-1. Clone este repositório para o seu computador utilizando o comando no terminal:
+1. Clone this repository to your computer using the terminal command:
 ```
 git clone https://github.com/MatheussAlvess/Variational_AutoEncoder.git
 ```
-2. Navegue até o diretório do projeto.
-3. Garanta ter as dependências necessárias executando no terminal:
+2. Navigate to the project directory.
+3. Ensure you have the necessary dependencies installed by running:
 ```
  pip install -r requirements.txt
 ```
-5. Descompacte a pasta do dataset e renomeie para 'data'. (Está pasta deve conter a subpasta _train_)
-6. Execute o seguinte comando no terminal:
+5. Extract the dataset folder and rename it to `data` (this folder must contain the `_train_` subfolder).
+6. Run the following command in the terminal:
    `python vae_model.py`
    
-#### O que o comando faz?
+#### What Does This Command Do?
 
-- O comando executará o script `vae_model.py`.
-- Este script carrega os dados, treina o modelo VAE e salva os modelos encoder e decoder.
-- Os modelos são salvos no diretório atual com os parâmetros _default_ definidos na função `build_model`.
+- It executes the `vae_model.py` code.
+- The script loads the data, trains the VAE model, and saves the encoder and decoder models.
+- The models are saved in the current directory using the default parameters defined in the `build_model` function.
 
-#### Observações:
-- Você pode modificar os parâmetros do modelo VAE editando o script `vae_model.py`, tanto passando os parâmetros para o `build_model` quanto variando internamente os hiperparâmetros da arquitetura (como o tamanho dos filtros, quantidade de camadas, etc.).
-- Esta é a primeira versão do projeto, ou seja, ainda há muitas melhorias que podem ser feitas. Isso inclui a otimização de hiperparâmetros e estrutura das arquiteturas encoder decoder.
-- A arquitetura foi fundamentada no [ _code examples_](https://keras.io/examples/generative/vae/) do Keras, que utiliza os dados MNIST, visando ter um ponto de partida "validado", com a intenção de ter resultados eficiente com brevidade.
-- Os resultados foram aceitáveis, uma vez que nada foi otimizado. Mas para melhorar o desempenho, recomento aumentar o número de épocas, avaliar as métricas de perda, variar a estrutura tanto do encoder quanto do decoder além de variar os parâmetros no geral. 
+#### Notes:
+- You can modify the VAE model parameters by editing the `vae_model.py` script, either by passing parameters to `build_model` or adjusting hyperparameters internally (such as filter sizes, number of layers, etc.).
+- This is the first version of the project, meaning there is still room for many improvements. This includes optimizing hyperparameters and refining the encoder-decoder architecture.
+- The architecture is based on [ _code examples_](https://keras.io/examples/generative/vae/) that use the MNIST dataset, providing a validated starting point for achieving efficient results quickly.
+- The results were acceptable, given that no optimization was performed. To improve performance, consider increasing the number of epochs, analyzing loss metrics, modifying the encoder and decoder structures, and adjusting other parameters.
 
-#### Próximos passos:
-- Realizar clusterização no espaço latente considerando as raças. Tendo como objetivo conseguir avaliar, dado uma imagem de input, qual a raça do cachorro.
+#### Next Steps:
+- Perform clustering in the latent space based on dog breeds. The goal is to evaluate the breed of a given input image.
 
 > [!NOTE]
-> Devido o tamanho dos modelos salvos, não foi possível subir no repositório. Para replicar os resultados, basta executar com os parâmetros _default_.
+> - Due to the size of the saved models, they could not be uploaded to the repository. To replicate the results, simply run the script with the default parameters.
+> - This project is part of a technical case evaluated for a Data Scientist position at HandTalk. Therefore, it is common to find comments in the code written in Portuguese.
